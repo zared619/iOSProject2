@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2049D01CAB5B240053194C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2049CC1CAB5B240053194C /* Fabric.framework */; };
+		6F2049D11CAB5B240053194C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2049CD1CAB5B240053194C /* TwitterKit.framework */; };
+		6F2049D21CAB5B240053194C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F2049CE1CAB5B240053194C /* TwitterKitResources.bundle */; };
+		6F2049D31CAB5B240053194C /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2049CF1CAB5B240053194C /* TwitterCore.framework */; };
 		EC2BBB081CAB404E00BD9A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB071CAB404E00BD9A70 /* AppDelegate.swift */; };
 		EC2BBB0A1CAB404E00BD9A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB091CAB404E00BD9A70 /* ViewController.swift */; };
 		EC2BBB0D1CAB404E00BD9A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2BBB0B1CAB404E00BD9A70 /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F2049CC1CAB5B240053194C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		6F2049CD1CAB5B240053194C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		6F2049CE1CAB5B240053194C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		6F2049CF1CAB5B240053194C /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		EC2BBB041CAB404E00BD9A70 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2BBB071CAB404E00BD9A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC2BBB091CAB404E00BD9A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2049D01CAB5B240053194C /* Fabric.framework in Frameworks */,
+				6F2049D31CAB5B240053194C /* TwitterCore.framework in Frameworks */,
+				6F2049D11CAB5B240053194C /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +94,10 @@
 				EC2BBB1B1CAB404E00BD9A70 /* Project2Tests */,
 				EC2BBB261CAB404E00BD9A70 /* Project2UITests */,
 				EC2BBB051CAB404E00BD9A70 /* Products */,
+				6F2049CC1CAB5B240053194C /* Fabric.framework */,
+				6F2049CD1CAB5B240053194C /* TwitterKit.framework */,
+				6F2049CE1CAB5B240053194C /* TwitterKitResources.bundle */,
+				6F2049CF1CAB5B240053194C /* TwitterCore.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +153,7 @@
 				EC2BBB001CAB404E00BD9A70 /* Sources */,
 				EC2BBB011CAB404E00BD9A70 /* Frameworks */,
 				EC2BBB021CAB404E00BD9A70 /* Resources */,
+				6F2049CB1CAB5ACD0053194C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,6 +212,7 @@
 				TargetAttributes = {
 					EC2BBB031CAB404E00BD9A70 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4UD467ADB2;
 					};
 					EC2BBB171CAB404E00BD9A70 = {
 						CreatedOnToolsVersion = 7.3;
@@ -232,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2049D21CAB5B240053194C /* TwitterKitResources.bundle in Resources */,
 				EC2BBB121CAB404E00BD9A70 /* LaunchScreen.storyboard in Resources */,
 				EC2BBB0F1CAB404E00BD9A70 /* Assets.xcassets in Resources */,
 				EC2BBB0D1CAB404E00BD9A70 /* Main.storyboard in Resources */,
@@ -253,6 +271,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F2049CB1CAB5ACD0053194C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 7acce5e70ae31a44949fe903c6ff2a89db9df672 3d55776cd93008ffe9173c1176f0fc12df0c1839f56e154852c3b2090dfc0059";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC2BBB001CAB404E00BD9A70 /* Sources */ = {
@@ -403,10 +437,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Project2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.Project2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -414,10 +456,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Project2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gcc.Project2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -486,6 +536,7 @@
 				EC2BBB2E1CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC2BBB2F1CAB404E00BD9A70 /* Build configuration list for PBXNativeTarget "Project2Tests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +545,7 @@
 				EC2BBB311CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC2BBB321CAB404E00BD9A70 /* Build configuration list for PBXNativeTarget "Project2UITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +554,7 @@
 				EC2BBB341CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
