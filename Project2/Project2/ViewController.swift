@@ -29,27 +29,14 @@ class ViewController: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let client = TWTRAPIClient()
-        let statusesShowEndpoint = "https://api.twitter.com/1.1/search/tweets.json?q=%23FeeltheBern&result_type=recent&geocode=37.781157%2C-122.398720%2C10mi"
-        let params = ["id": "20"]
-        var clientError : NSError?
+        //First call to Twitter. Looking for tweets that include "Trump"
+        getData("https://api.twitter.com/1.1/search/tweets.json?q=%23Trump&result_type=recent&geocode=37.781157%2C-122.398720%2C10mi&count=100")
         
-        let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+        //Second call to Twitter. Looking for tweets that include "Hillary"
+        getData("https://api.twitter.com/1.1/search/tweets.json?q=%23Hillary&result_type=recent&geocode=37.781157%2C-122.398720%2C10mi&count=100")
         
-        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
-        if (connectionError == nil) {
-            var jsonError : NSError?
-              do{
-                   let json : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
-                print(json)
-
-                 }catch{
-                     print("Error")
-                 }
-              }else {
-                    print("Error: \(connectionError)")
-                }
-            }
+        //Third call to Twitter. Looking for tweets that include "FeelTheBern"
+        getData("https://api.twitter.com/1.1/search/tweets.json?q=%23Hillary&result_type=recent&geocode=37.781157%2C-122.398720%2C10mi&count=100")
         
         hashTagOne.placeholder = "Hash Tag One"
         hashTagTwo.placeholder = "Hash Tag Two"
@@ -57,6 +44,31 @@ class ViewController: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         Picker.delegate = self
         Picker.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func getData(query:String) {
+        let client = TWTRAPIClient()
+        let statusesShowEndpoint = query
+        let params = ["id": "20"]
+        var clientError : NSError?
+        
+        let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+        
+        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+            if (connectionError == nil) {
+                var jsonError : NSError?
+                do{
+                    let json : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+                    print(json)
+                    
+                }catch{
+                    print("Error")
+                }
+            }else {
+                print("Error: \(connectionError)")
+            }
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
