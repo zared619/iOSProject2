@@ -8,7 +8,12 @@
 
 import UIKit
 import MapKit
+import Twitter
+import TwitterKit
+
 class ViewController: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate {
+    
+    
 
     @IBOutlet weak var hashTagOne: UITextField!
     @IBOutlet weak var hashTagTwo: UITextField!
@@ -23,6 +28,29 @@ class ViewController: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let client = TWTRAPIClient()
+        let statusesShowEndpoint = "https://api.twitter.com/1.1/search/tweets.json?q=%23Trump&result_type=recent"
+        let params = ["id": "20"]
+        var clientError : NSError?
+        
+        let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+        
+        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+        if (connectionError == nil) {
+            var jsonError : NSError?
+              do{
+                   let json : AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+                print(json)
+
+                 }catch{
+                     print("Error")
+                 }
+              }else {
+                    print("Error: \(connectionError)")
+                }
+            }
+        
         hashTagOne.placeholder = "Hash Tag One"
         hashTagTwo.placeholder = "Hash Tag Two"
         hashTagThree.placeholder = "Hash Tag Three"
