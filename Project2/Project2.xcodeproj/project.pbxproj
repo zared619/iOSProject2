@@ -486,6 +486,7 @@
 				EC2BBB2E1CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC2BBB2F1CAB404E00BD9A70 /* Build configuration list for PBXNativeTarget "Project2Tests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +495,7 @@
 				EC2BBB311CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC2BBB321CAB404E00BD9A70 /* Build configuration list for PBXNativeTarget "Project2UITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +504,7 @@
 				EC2BBB341CAB404E00BD9A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
