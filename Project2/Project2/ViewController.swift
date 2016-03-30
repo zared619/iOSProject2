@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         super.viewDidLoad()
         
         let client = TWTRAPIClient()
-        let statusesShowEndpoint = "https://api.twitter.com/1.1/search/tweets.json?q=%23Trump&result_type=recent"
+        let statusesShowEndpoint = "https://api.twitter.com/1.1/search/tweets.json?q=%23FeeltheBern&result_type=recent&geocode=37.781157%2C-122.398720%2C10mi"
         let params = ["id": "20"]
         var clientError : NSError?
         
