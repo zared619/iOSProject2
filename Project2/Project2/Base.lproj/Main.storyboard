@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Query-->
@@ -55,28 +54,10 @@
                                     <segue destination="4Qf-jC-Fci" kind="show" id="cy0-ih-wI1"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftf-Ms-6s3">
-                                <rect key="frame" x="323" y="245" width="123" height="110"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="VRw-7a-CcO"/>
-                                    <constraint firstAttribute="height" constant="110" id="qnN-AY-WeZ"/>
-                                </constraints>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPE-Tx-mQz">
-                                <rect key="frame" x="198" y="289" width="57" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="gbP-D2-zaY"/>
-                                    <constraint firstAttribute="width" constant="57" id="wVL-h7-sLM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="leading" secondItem="jFO-oV-IgK" secondAttribute="leading" id="16K-Yp-BBc"/>
-                            <constraint firstItem="gPE-Tx-mQz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="178" id="2wW-KX-9tK"/>
                             <constraint firstItem="Ot4-bS-pQd" firstAttribute="top" secondItem="z3A-IO-UXM" secondAttribute="bottom" constant="216" id="7K9-K3-sJH"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="centerX" secondItem="Ot4-bS-pQd" secondAttribute="centerX" id="CNg-hR-Ph9"/>
                             <constraint firstItem="jFO-oV-IgK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LeV-es-wYC"/>
@@ -87,16 +68,11 @@
                             <constraint firstItem="z3A-IO-UXM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lAa-fI-Igi"/>
                             <constraint firstItem="Ot4-bS-pQd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nX7-b2-eM1"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pFi-os-iMd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ftf-Ms-6s3" secondAttribute="trailing" constant="134" id="pk9-B5-OHi"/>
-                            <constraint firstItem="gPE-Tx-mQz" firstAttribute="top" secondItem="z3A-IO-UXM" secondAttribute="bottom" constant="72" id="rgl-3J-uFV"/>
-                            <constraint firstItem="ftf-Ms-6s3" firstAttribute="leading" secondItem="gPE-Tx-mQz" secondAttribute="trailing" constant="68" id="sFm-fJ-mZ6"/>
-                            <constraint firstItem="ftf-Ms-6s3" firstAttribute="top" secondItem="z3A-IO-UXM" secondAttribute="bottom" constant="28" id="w8w-5e-hiU"/>
                             <constraint firstItem="z3A-IO-UXM" firstAttribute="top" secondItem="jFO-oV-IgK" secondAttribute="bottom" constant="36" id="zYz-4S-j5T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Query" id="s4p-yB-MLi"/>
                     <connections>
-                        <outlet property="Picker" destination="ftf-Ms-6s3" id="DkF-1R-USs"/>
                         <outlet property="hashTagOne" destination="qHH-g5-veC" id="z7K-4w-wEo"/>
                         <outlet property="hashTagThree" destination="z3A-IO-UXM" id="CJK-h9-Krd"/>
                         <outlet property="hashTagTwo" destination="jFO-oV-IgK" id="Brg-uJ-apT"/>
