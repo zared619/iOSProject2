@@ -6,26 +6,53 @@
 //  Copyright © 2016 Andrew Pier. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MapKit
 
-class MapView: UIViewController {
+class MapView: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var Map: MKMapView!
-    var pinArr = [MKPointAnnotation]()
+    var pinArr = [ColorPointAnnotation]()
+    var pinArr2 = [ColorPointAnnotation]()
+    var pinArr3 = [ColorPointAnnotation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Map.delegate = self
         let loc  = CLLocationCoordinate2D(latitude: 41.55, longitude: -80.004)
-        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        let span = MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
         let reg = MKCoordinateRegion(center: loc, span: span)
         Map.setRegion(reg, animated: false)
-        let pin = MKPointAnnotation()
-        pin.coordinate = loc
-        pin.title = "Look overe here"
-        Map.addAnnotation(pin)
-
-
-        // Do any additional setup after loading the view.
+        
+        for pin in pinArr{
+            self.Map.addAnnotation(pin)
+        }
+        for pin in pinArr2{
+            self.Map.addAnnotation(pin)
+        }
+        for pin in pinArr3{
+            self.Map.addAnnotation(pin)
+        }
+    }
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ColorPointAnnotation{
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                as? MKPinAnnotationView { // 2
+                    dequeuedView.annotation = annotation
+                    view = dequeuedView
+            } else {
+                // 3
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.pinTintColor = annotation.pinColor
+            }
+            return view
+        }
+        return nil
     }
 
     override func didReceiveMemoryWarning() {

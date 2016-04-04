@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Gq-Y9-Vty">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="exj-ba-thu">
+            <objects>
+                <navigationController id="4Gq-Y9-Vty" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ryp-U8-AOG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0Ps-aT-RRr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBr-XP-QBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-573" y="424"/>
+        </scene>
         <!--Query-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHH-g5-veC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHH-g5-veC">
                                 <rect key="frame" x="208" y="53" width="184" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YPq-WW-w4a"/>
@@ -25,7 +41,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jFO-oV-IgK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jFO-oV-IgK">
                                 <rect key="frame" x="208" y="121" width="184" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="b1I-Wz-8Dw"/>
@@ -34,7 +50,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-IO-UXM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-IO-UXM">
                                 <rect key="frame" x="208" y="187" width="184" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="3m5-Q6-0CH"/>
@@ -43,7 +59,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-bS-pQd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHH-Hy-NHx">
+                                <rect key="frame" x="208" y="258" width="184" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="8NA-bc-YqU"/>
+                                    <constraint firstAttribute="height" constant="30" id="U8l-ps-Pl3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-bS-pQd">
                                 <rect key="frame" x="274" y="433" width="53" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="klV-gM-ayv"/>
@@ -51,9 +76,19 @@
                                 </constraints>
                                 <state key="normal" title="Search!"/>
                                 <connections>
+                                    <action selector="SearchPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="IsO-kG-y8F"/>
                                     <segue destination="4Qf-jC-Fci" kind="show" id="cy0-ih-wI1"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikG-cW-Bqk">
+                                <rect key="frame" x="208" y="329" width="184" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="YtZ-KB-vSq"/>
+                                    <constraint firstAttribute="height" constant="30" id="kJj-sm-YkG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,11 +98,15 @@
                             <constraint firstItem="jFO-oV-IgK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LeV-es-wYC"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="trailing" secondItem="jFO-oV-IgK" secondAttribute="trailing" id="TTQ-uf-yet"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="leading" secondItem="z3A-IO-UXM" secondAttribute="leading" id="aIH-Jw-s1R"/>
+                            <constraint firstItem="ikG-cW-Bqk" firstAttribute="leading" secondItem="z3A-IO-UXM" secondAttribute="leading" id="cH5-QT-MC4"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="eVU-Ms-sZ7"/>
+                            <constraint firstItem="ikG-cW-Bqk" firstAttribute="leading" secondItem="RHH-Hy-NHx" secondAttribute="leading" id="imA-7g-eVV"/>
                             <constraint firstItem="jFO-oV-IgK" firstAttribute="top" secondItem="qHH-g5-veC" secondAttribute="bottom" constant="38" id="kzC-3g-di4"/>
                             <constraint firstItem="z3A-IO-UXM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lAa-fI-Igi"/>
+                            <constraint firstItem="Ot4-bS-pQd" firstAttribute="top" secondItem="ikG-cW-Bqk" secondAttribute="bottom" constant="74" id="muE-d4-02o"/>
                             <constraint firstItem="Ot4-bS-pQd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nX7-b2-eM1"/>
                             <constraint firstItem="qHH-g5-veC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pFi-os-iMd"/>
+                            <constraint firstItem="ikG-cW-Bqk" firstAttribute="top" secondItem="RHH-Hy-NHx" secondAttribute="bottom" constant="41" id="z7Q-rd-PEb"/>
                             <constraint firstItem="z3A-IO-UXM" firstAttribute="top" secondItem="jFO-oV-IgK" secondAttribute="bottom" constant="36" id="zYz-4S-j5T"/>
                         </constraints>
                     </view>
@@ -76,6 +115,8 @@
                         <outlet property="hashTagOne" destination="qHH-g5-veC" id="z7K-4w-wEo"/>
                         <outlet property="hashTagThree" destination="z3A-IO-UXM" id="CJK-h9-Krd"/>
                         <outlet property="hashTagTwo" destination="jFO-oV-IgK" id="Brg-uJ-apT"/>
+                        <outlet property="lat" destination="RHH-Hy-NHx" id="1Pn-aV-q2F"/>
+                        <outlet property="lon" destination="ikG-cW-Bqk" id="luw-Ow-sWV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,7 +161,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="45S-mW-ugq"/>
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="y0i-0T-BTT">
                             <connections>
-                                <segue destination="hKz-p6-Evn" kind="unwind" unwindAction="done:sender:" id="95v-Yd-n6n"/>
+                                <segue destination="hKz-p6-Evn" kind="unwind" unwindAction="Done:" id="Ihx-EK-zgn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

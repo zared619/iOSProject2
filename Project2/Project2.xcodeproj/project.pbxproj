@@ -15,7 +15,6 @@
 		EC2BBB0A1CAB404E00BD9A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB091CAB404E00BD9A70 /* ViewController.swift */; };
 		EC2BBB0D1CAB404E00BD9A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2BBB0B1CAB404E00BD9A70 /* Main.storyboard */; };
 		EC2BBB0F1CAB404E00BD9A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2BBB0E1CAB404E00BD9A70 /* Assets.xcassets */; };
-		EC2BBB121CAB404E00BD9A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2BBB101CAB404E00BD9A70 /* LaunchScreen.storyboard */; };
 		EC2BBB1D1CAB404E00BD9A70 /* Project2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB1C1CAB404E00BD9A70 /* Project2Tests.swift */; };
 		EC2BBB281CAB404E00BD9A70 /* Project2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB271CAB404E00BD9A70 /* Project2UITests.swift */; };
 		EC2BBB361CAB47AF00BD9A70 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2BBB351CAB47AF00BD9A70 /* MapView.swift */; };
@@ -48,7 +47,6 @@
 		EC2BBB091CAB404E00BD9A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC2BBB0C1CAB404E00BD9A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC2BBB0E1CAB404E00BD9A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC2BBB111CAB404E00BD9A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC2BBB131CAB404E00BD9A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2BBB181CAB404E00BD9A70 /* Project2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2BBB1C1CAB404E00BD9A70 /* Project2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2Tests.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				EC2BBB091CAB404E00BD9A70 /* ViewController.swift */,
 				EC2BBB0B1CAB404E00BD9A70 /* Main.storyboard */,
 				EC2BBB0E1CAB404E00BD9A70 /* Assets.xcassets */,
-				EC2BBB101CAB404E00BD9A70 /* LaunchScreen.storyboard */,
 				EC2BBB131CAB404E00BD9A70 /* Info.plist */,
 			);
 			path = Project2;
@@ -250,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F2049D21CAB5B240053194C /* TwitterKitResources.bundle in Resources */,
-				EC2BBB121CAB404E00BD9A70 /* LaunchScreen.storyboard in Resources */,
 				EC2BBB0F1CAB404E00BD9A70 /* Assets.xcassets in Resources */,
 				EC2BBB0D1CAB404E00BD9A70 /* Main.storyboard in Resources */,
 			);
@@ -337,14 +333,6 @@
 				EC2BBB0C1CAB404E00BD9A70 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EC2BBB101CAB404E00BD9A70 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC2BBB111CAB404E00BD9A70 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
