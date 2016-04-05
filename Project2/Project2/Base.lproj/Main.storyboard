@@ -77,7 +77,13 @@
                                 <state key="normal" title="Search!"/>
                                 <connections>
                                     <action selector="SearchPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="IsO-kG-y8F"/>
-                                    <segue destination="4Qf-jC-Fci" kind="show" id="cy0-ih-wI1"/>
+                                    <segue destination="4Qf-jC-Fci" kind="show" identifier="mySegue" id="8jf-nW-GGS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mug-GK-LJY">
+                                <rect key="frame" x="480" y="492" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="4Qf-jC-Fci" kind="show" identifier="mySegues" id="j3K-FQ-iOg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikG-cW-Bqk">
@@ -110,8 +116,20 @@
                             <constraint firstItem="z3A-IO-UXM" firstAttribute="top" secondItem="jFO-oV-IgK" secondAttribute="bottom" constant="36" id="zYz-4S-j5T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Query" id="s4p-yB-MLi"/>
+                    <navigationItem key="navigationItem" title="Query" id="s4p-yB-MLi">
+                        <barButtonItem key="leftBarButtonItem" title="Read" id="CmY-9I-G9m">
+                            <connections>
+                                <action selector="ReadFromButtonClick:" destination="BYZ-38-t0r" id="5Oo-Of-fhp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="S17-HB-Cda">
+                            <connections>
+                                <action selector="SaveFileClick:" destination="BYZ-38-t0r" id="UON-gz-HzX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="SaveFile" destination="S17-HB-Cda" id="moG-yf-zWh"/>
                         <outlet property="hashTagOne" destination="qHH-g5-veC" id="z7K-4w-wEo"/>
                         <outlet property="hashTagThree" destination="z3A-IO-UXM" id="CJK-h9-Krd"/>
                         <outlet property="hashTagTwo" destination="jFO-oV-IgK" id="Brg-uJ-apT"/>
@@ -175,4 +193,7 @@
             <point key="canvasLocation" x="1777" y="429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8jf-nW-GGS"/>
+    </inferredMetricsTieBreakers>
 </document>

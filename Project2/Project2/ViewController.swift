@@ -11,13 +11,60 @@ import MapKit
 import Twitter
 import TwitterKit
 
+//target
 class numPair: NSObject{
-    var first:Double = 0.0
+    dynamic var first:Double = 0.0
     var second:Double = 0.0
+    var text: String = ""
 }
+
 
 class TextData: NSObject{
     var text: String = ""
+    dynamic var coordinateData:[numPair] = []
+    dynamic var coordinateData2:[numPair] = []
+    dynamic var coordinateData3:[numPair] = []
+}
+
+//var target = numPair()
+
+var numPins = 0
+var textdata = TextData()
+//surprise...it's the observer
+class Observer: NSObject{
+    var t =  TextData()
+    
+    func watch(){
+        t = textdata
+        t.addObserver(self, forKeyPath: "coordinateData", options: .New, context: nil)
+        t.addObserver(self, forKeyPath: "coordinateData2", options: .New, context: nil)
+        t.addObserver(self, forKeyPath: "coordinateData3", options: .New, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "coordinateData"{
+            numPins += 1
+            print("There are \(numPins) pins!")
+        }
+        else if keyPath == "coordinateData2"{
+            numPins += 1
+            print("There are \(numPins) pins!")
+            
+        }
+        else if keyPath == "coordinateData3"{
+            numPins += 1
+            print("There are \(numPins) pins!")
+            
+        }
+        else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
+        
+    }
+    
+    deinit {
+        t.removeObserver(self, forKeyPath: "first")
+    }
 }
 
 class ColorPointAnnotation: MKPointAnnotation{
@@ -55,9 +102,19 @@ class ViewController: UIViewController {
     let file2 = "SecondHashtag"
     let file3 = "ThirdHashtag"
     
+    var overlay: UIView?
+    
+    
+    let observer = Observer()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //target.first description= 10
+        textdata.coordinateData = []
+        textdata.coordinateData2 = []
+        textdata.coordinateData3 = []
+        overlay = UIView(frame: view.frame)
         hashTagOne.placeholder = "Hash Tag One"
         hashTagTwo.placeholder = "Hash Tag Two"
         hashTagThree.placeholder = "Hash Tag Three"
@@ -70,28 +127,135 @@ class ViewController: UIViewController {
         
     }
     @IBAction func SearchPress(){
+        overlay = UIView(frame: view.frame)
+        overlay!.backgroundColor = UIColor.whiteColor()
+        let myText: UILabel! = UILabel(frame: CGRectMake(0, 0, 100, 21))
+        myText.center = CGPointMake(200, 284)
+        myText.textAlignment = NSTextAlignment.Center
+        myText.text = "Loading... :)"
+        overlay?.addSubview(myText)
+        view.addSubview(overlay!)
+        
+        
         let dataStr = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + hashTagOne.text! + "&result_type=recent&geocode="
         let dataStr2 = dataStr + lat.text! + "%2C" + lon.text! + "%2C1000mi&count=100"
         
         getData(dataStr2, fileName: file1 + ".txt")
-        readData(file1, whichHashtag: 1)
         
         let searchForCoords = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + hashTagTwo.text! + "&result_type=recent&geocode="
         let getDataFromCoords = searchForCoords + lat.text! + "%2C" + lon.text! + "%2C1000mi&count=100"
         
         getData(getDataFromCoords, fileName: file2 + ".txt")
-        readData(file2, whichHashtag: 2)
         
         let searchForCoords2 = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + hashTagThree.text! + "&result_type=recent&geocode="
         let getDataFromCoords2 = searchForCoords2 + lat.text! + "%2C" + lon.text! + "%2C1000mi&count=100"
         
         getData(getDataFromCoords2, fileName: file3 + ".txt")
+        NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "timerDone", userInfo: nil, repeats: false)
+        
+        readData(file1, whichHashtag: 1)
+        readData(file2, whichHashtag: 2)
         readData(file2, whichHashtag: 3)
+        
+    }
+    @IBAction func SaveFileClick(sender: AnyObject) {
+        let alertController = UIAlertController(title: "FileName", message: "Please the file to save to:", preferredStyle: .Alert)
+        var saveString: String = ""
+        let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+            if let field = alertController.textFields![0] as? UITextField {
+                // store your data
+                NSUserDefaults.standardUserDefaults().setObject(field.text, forKey: "userEmail")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                saveString = field.text!
+                    let dataStr = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + self.hashTagOne.text! + "&result_type=recent&geocode="
+                    let dataStr2 = dataStr + self.lat.text! + "%2C" + self.lon.text! + "%2C1000mi&count=100"
+                    
+                    self.getData(dataStr2, fileName: saveString + ".txt")
+                
+                    let searchForCoords = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + self.hashTagTwo.text! + "&result_type=recent&geocode="
+                    let getDataFromCoords = searchForCoords + self.lat.text! + "%2C" + self.lon.text! + "%2C1000mi&count=100"
+                    
+                    self.getData(getDataFromCoords, fileName: saveString + ".txt")
+                
+                    let searchForCoords2 = "https://api.twitter.com/1.1/search/tweets.json?q=%23" + self.hashTagThree.text! + "&result_type=recent&geocode="
+                    let getDataFromCoords2 = searchForCoords2 + self.lat.text! + "%2C" + self.lon.text! + "%2C1000mi&count=100"
+                    
+                    self.getData(getDataFromCoords2, fileName: saveString + ".txt")
+                
+            } else {
+                // user did not fill field
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "filename (no .txt)"
+            
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+    
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    @IBAction func ReadFromButtonClick(sender: AnyObject) {
+            let alertController = UIAlertController(title: "FileName", message: "Please the file to read from:", preferredStyle: .Alert)
+            
+            let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+                if let field = alertController.textFields![0] as? UITextField {
+                    // store your data
+                    NSUserDefaults.standardUserDefaults().setObject(field.text, forKey: "readFile")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    self.readData(field.text!, whichHashtag: 1)
+                    
+                    self.overlay!.backgroundColor = UIColor.whiteColor()
+                    let myText: UILabel! = UILabel(frame: CGRectMake(0, 0, 100, 21))
+                    myText.center = CGPointMake(200, 284)
+                    myText.textAlignment = NSTextAlignment.Center
+                    myText.text = "Loading... :)"
+                    self.overlay?.addSubview(myText)
+                    self.view.addSubview(self.overlay!)
+                    NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "timerDone", userInfo: nil, repeats: false)
+
+                } else {
+                    // user did not fill field
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+            
+            alertController.addTextFieldWithConfigurationHandler { (textField) in
+                textField.placeholder = "filename"
+            }
+            
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        
+    }
+    @IBOutlet weak var SaveFile: UIBarButtonItem!
+    
+    func timerDone(){
+        overlay?.removeFromSuperview()
+        performSegueWithIdentifier("mySegues", sender: nil)
     }
     
     func readData(strs: String, whichHashtag: Int){
+         observer.watch()
+       
+
         let str:NSString = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0]
+        
         let newPath = str.stringByAppendingPathComponent((strs as String) + ".txt")
+
         //let path = NSBundle.mainBundle().pathForResource(strs as String, ofType: "txt")
         var data = String()
         
@@ -105,16 +269,18 @@ class ViewController: UIViewController {
                 var count: Int = 0
                 for character in data.characters {
                     if(character == ")"){
-                        let newPair = numPair()
-                        newPair.first = Double(first)!
-                        newPair.second = Double(second)!
+                       
+                        //target.first = 10
+                        var num = numPair()
+                        num.first = Double(first)!
+                        num.second = Double(second)!
                         switch whichHashtag{
                         case 1:
-                             coordinateData.append(newPair)
+                             textdata.coordinateData.append(num)
                         case 2:
-                             coordinateData2.append(newPair)
+                             textdata.coordinateData2.append(num)
                         default:
-                             coordinateData3.append(newPair)
+                             textdata.coordinateData3.append(num)
                         }
                         foundComma = false
                         first = ""
@@ -160,6 +326,9 @@ class ViewController: UIViewController {
         let str : NSString = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0]
         let path = str.stringByAppendingPathComponent(strs)
         do{
+            let texts = ""
+            try texts.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+            
             let text = locData
             try text.description.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
         } catch{
@@ -197,9 +366,10 @@ class ViewController: UIViewController {
                                 if statusDict!["geo"] as? [String: AnyObject] != nil{
                                     //get coordinates into what the form we want
                                     let coordinates = geo as? NSDictionary
-                                    
+                                 
                                     if let coord = coordinates!["coordinates"]{
                                         //add the coordinates to our locData array
+                                        
                                         self.locData.append(coord)
                                     }
                                 }
@@ -224,11 +394,13 @@ class ViewController: UIViewController {
     }
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "mySegues"){
             let dest = segue.destinationViewController as! UINavigationController
             let destin = dest.childViewControllers[0] as! MapView
             var pinArr = [ColorPointAnnotation]()
-            var count = 0
-            for c in self.coordinateData {
+            pinArr = []
+            //var count = 0
+            for c in textdata.coordinateData {
                 let loc  = CLLocationCoordinate2D(latitude: c.first, longitude: c.second)
                 let pin = ColorPointAnnotation(color: UIColor.greenColor(), coordinate: loc)
                 pin.title = "#" + hashTagOne.text!
@@ -236,14 +408,14 @@ class ViewController: UIViewController {
                 pinArr.append(pin)
             }
         
-            for c in self.coordinateData2 {
+            for c in textdata.coordinateData2 {
                 let loc  = CLLocationCoordinate2D(latitude: c.first, longitude: c.second)
                 let pin = ColorPointAnnotation(color: UIColor.redColor(), coordinate: loc)
                 pin.title = "#" + hashTagTwo.text!
                 pin.coordinate = loc
                 pinArr.append(pin)
             }
-            for c in self.coordinateData3 {
+            for c in textdata.coordinateData3 {
                 let loc  = CLLocationCoordinate2D(latitude: c.first, longitude: c.second)
                 let pin = ColorPointAnnotation(color: UIColor.blueColor(), coordinate: loc)
                 pin.title = "#" + hashTagThree.text!
@@ -251,6 +423,19 @@ class ViewController: UIViewController {
                 pinArr.append(pin)
             }
             destin.pinArr = pinArr
+        }else{
+            
+        }
+    }
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if let ident = identifier {
+            if ident == "mySegues" {
+                
+                    return true
+                
+            }else{return false}
+        }
+        return true
     }
 
 }

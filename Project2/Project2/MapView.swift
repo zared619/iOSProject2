@@ -20,6 +20,7 @@ class MapView: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         Map.delegate = self
+        
         let loc  = CLLocationCoordinate2D(latitude: 41.55, longitude: -80.004)
         let span = MKCoordinateSpan(latitudeDelta: 15, longitudeDelta: 15)
         let reg = MKCoordinateRegion(center: loc, span: span)
